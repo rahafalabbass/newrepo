@@ -12,7 +12,7 @@ private $db_params;
 
 	function getConnection(){
 		
-		$conn = mysqli_connect($this->db_params['host'],$this->db_params['username'],$this->db_params['password'],$this->db_params['db']);
+		$conn = mysqli_connect($this->db_params['hostname'],$this->db_params['username'],$this->db_params['password'],$this->db_params['dataname']);
 		if($conn->connect_error){
 			die("Connection Faild: ". $conn->connect_error);
 		}
