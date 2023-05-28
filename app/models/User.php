@@ -19,18 +19,18 @@ public function __construct()
 }
 
 public function register($name,$email){
-  $query = 'INSERT INTO users (name,email) VALUE( '.$name.','.$email.' )';
+  $query = "INSERT INTO users (name,email) VALUES( "."'$name'".","."'$email'"." )";
   $sql = $this->connection->query($query);
 }
 
 public function get_one($args){
-  $query ='SELECT * FROM users where name = '. $args .' or email= '.$args;
+  $query ="SELECT * FROM users where name = ". "'$args'" ." or email= "."'$args'";
   $sql = $this->connection->query($query);
   return $sql;
 }
 
-public function edit($newName,$newEmail,$id){
-  $query = 'UPDATE users SET name = '.$name.', password = '.$password.' WHERE id = '.$id;
+public function edit($newName,$newEmail,$name){
+  $query = "UPDATE users SET name = "."'$newName'".", email = "."'$newEmail'"." WHERE name = "."'$name'"." or email= "."'$name'";
   $sql = $this->connection->query($query);
 }
 
