@@ -1,9 +1,9 @@
 <?php 
 return[
-	'hostname' => 'localhost',
+	'host' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	'dataname' => 'n_mvc',
+	'db' => 'n_mvc',
 ];
 
  ?>

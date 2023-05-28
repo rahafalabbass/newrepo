@@ -33,7 +33,7 @@ public function register(){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $result = $this->model->register($name,$email);
-    header('Location:/all-users');
+    header('Location:/MVC/all-users');
   }else{
     $this->load_view('register',[]);
   }
@@ -53,7 +53,7 @@ public function get_one(){
     // if(!$result){
     //   echo "Sorry, but this name doesn't exist";
     // }else{
-      $this->load_view('one-user',$users);
+      $this->load_view('one_user',$users);
     // }
   }else{
     $this->load_view('search',[]);
@@ -65,17 +65,18 @@ public function edit(){
     $name = $_POST['oldName'];
     $newName = $_POST['nName'];
     $newEmail = $_POST['nEmail'];
-    $sql = $this->model->get_one($name);
-    $result = $sql->fetch_object();
+    // $sql = $this->model->get_one($name);
+    // $result = $sql->fetch_assoc();
+    
     // if(!$result){
     //   echo "Sorry, but this name doesn't exist";
     // }else{
-      $user = new User();
-      $user->id=$result->id;
-      $id = $user->id;
-      $sql2 = $this->model->edit($newName,$newEmail,$id);
-    // }
-    header('Location:/all-users');
+      // $user = new User();
+      // $user->id=$result->id;
+  //     $id = $user->id;
+      $sql = $this->model->edit($newName,$newEmail,$name);
+  //   // }
+    header('Location:/MVC/all-users');
   }else{
     $this->load_view('update_form',[]);
   }
